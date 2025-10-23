@@ -118,25 +118,26 @@ class KinematicsModel:
             
             rot_data = xml_node.attrib.get("quat", "1 0 0 0")
             rot = np.fromstring(rot_data, dtype=float, sep=" ")
+            # mujoco: w x y z  isaac gym: x y z w
             rot_w = rot[..., 0].copy()
             rot[..., 0:3] = rot[..., 1:]
             rot[..., 3] = rot_w
             
-            if body_index == 0:
+            if body_index == 0: # 无自由度
                 curr_joint = Joint(name=body_name, dof_dim=0, axis=None) # root
             else:
                 curr_joints = xml_node.findall("joint")
                 num_joints = len(curr_joints)
-                if num_joints == 0:
+                if num_joints == 0: # 固定关节
                     curr_joint = Joint(name=body_name, dof_dim=0, axis=None)
-                elif num_joints == 1:
+                elif num_joints == 1:# 单轴旋转
                     _axis = np.fromstring(curr_joints[0].attrib.get("axis"), dtype=float, sep=" ")
                     axis = torch.from_numpy(_axis).to(self._device)
                     curr_joint = Joint(name=body_name, dof_dim=1, axis=axis)
                     _dof_limits = np.fromstring(curr_joints[0].attrib.get("range"), dtype=float, sep=" ")
                     self._dof_lower_limits.append(_dof_limits[0])
                     self._dof_upper_limits.append(_dof_limits[1])
-                elif num_joints == 3:
+                elif num_joints == 3: # 三轴旋转
                     axis = None
                     curr_joint = Joint(name=body_name, dof_dim=3, axis=axis)
                     for joint in curr_joints:

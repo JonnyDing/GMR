@@ -3,6 +3,7 @@ import pathlib
 import os
 import time
 
+import ipdb
 import numpy as np
 
 from general_motion_retargeting import GeneralMotionRetargeting as GMR
@@ -10,6 +11,8 @@ from general_motion_retargeting import RobotMotionViewer
 from general_motion_retargeting.utils.smpl import load_gvhmr_pred_file, get_gvhmr_data_offline_fast
 
 from rich import print
+
+default_pose = np.array([-0.2468,0.0,0.0,0.5181,0.0,-0.2468,-0.2468,0.0,0.0,0.5181,0.0,-0.2468],dtype=np.float64)
 
 if __name__ == "__main__":
     
@@ -128,7 +131,8 @@ if __name__ == "__main__":
 
         # retarget
         qpos = retarget.retarget(smplx_data)
-
+        qpos[2] -=0.02
+        qpos[12]=qpos[18]=-0.2408
         # visualize
         robot_motion_viewer.step(
             root_pos=qpos[:3],
@@ -140,18 +144,21 @@ if __name__ == "__main__":
             show_human_body_name=False,
             rate_limit=args.rate_limit,
         )
+        # ipdb.set_trace()
         if args.save_path is not None:
             qpos_list.append(qpos)
             
     if args.save_path is not None:
         import pickle
+
         root_pos = np.array([qpos[:3] for qpos in qpos_list])
         # save from wxyz to xyzw
         root_rot = np.array([qpos[3:7][[1,2,3,0]] for qpos in qpos_list])
         dof_pos = np.array([qpos[7:] for qpos in qpos_list])
         local_body_pos = None
         body_names = None
-        
+
+        print(root_pos)
         motion_data = {
             "fps": aligned_fps,
             "root_pos": root_pos,

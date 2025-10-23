@@ -21,7 +21,7 @@ if __name__ == "__main__":
         help="SMPLX motion file to load.",
         type=str,
         # required=True,
-        default="/home/yanjieze/projects/g1_wbc/GMR/motion_data/ACCAD/Male1General_c3d/General_A1_-_Stand_stageii.npz",
+        default="/home/djw/Desktop/GMR/raw_data/smplx/video_CR7_level2_filter_amass.npz",
         # default="/home/yanjieze/projects/g1_wbc/GMR/motion_data/ACCAD/Male2MartialArtsKicks_c3d/G8_-__roundhouse_left_stageii.npz"
         # default="/home/yanjieze/projects/g1_wbc/TWIST-dev/motion_data/AMASS/KIT_572_dance_chacha11_stageii.npz"
         # default="/home/yanjieze/projects/g1_wbc/GMR/motion_data/ACCAD/Male2MartialArtsPunches_c3d/E1_-__Jab_left_stageii.npz",
@@ -34,7 +34,7 @@ if __name__ == "__main__":
                  "booster_t1", "booster_t1_29dof","stanford_toddy", "fourier_n1", 
                 "engineai_pm01", "kuavo_s45", "hightorque_hi", "galaxea_r1pro", "berkeley_humanoid_lite", "booster_k1",
                 "pnd_adam_lite", "openloong", "tienkung"],
-        default="unitree_g1",
+        default="fourier_n1",
     )
     
     parser.add_argument(

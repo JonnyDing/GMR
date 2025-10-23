@@ -23,7 +23,7 @@ def load_smplx_file(smplx_file, smplx_body_model_path):
     # print(smplx_data["betas"].shape)
     # print(smplx_data["root_orient"].shape)
     # print(smplx_data["trans"].shape)
-    
+    # import ipdb; ipdb.set_trace()
     num_frames = smplx_data["pose_body"].shape[0]
     smplx_output = body_model(
         betas=torch.tensor(smplx_data["betas"]).float().view(1, -1), # (16,)

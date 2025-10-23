@@ -230,7 +230,7 @@
 
                                     <body name="left_hand_yaw_link" pos="0 0 -0.1005">
                                         <inertial pos="-0.0020835 6.386e-05 -0.013715" quat="0.999837 -0.00132735 -0.00221673 0.0178597" mass="0.44" diaginertia="0.000433576 0.000407568 0.000270066"/>
-                                        <joint class="joint_4530E" name="left_wrist_yaw_joint" pos="0 0 0" axis="0 0 1" range="-1.832 1.832"/>
+<!--                                        <joint class="joint_4530E" name="left_wrist_yaw_joint" pos="0 0 0" axis="0 0 1" range="-1.832 1.832"/>-->
                                         <geom class="visual" mesh="left_hand_yaw_link"/>
                                         <geom class="collision" size="0.032 0.06" type="cylinder"/>
 
@@ -270,7 +270,7 @@
 
                                     <body name="right_hand_yaw_link" pos="0 0 -0.1005">
                                         <inertial pos="-0.00020719 -1.94e-05 -0.013715" quat="0.999257 -0.00336645 -0.00376299 0.0381993" mass="0.44" diaginertia="0.000432418 0.000408738 0.000270055"/>
-                                        <joint class="joint_4530E" name="right_wrist_yaw_joint" pos="0 0 0" axis="0 0 1" range="-1.832 1.832"/>
+<!--                                        <joint class="joint_4530E" name="right_wrist_yaw_joint" pos="0 0 0" axis="0 0 1" range="-1.832 1.832"/>-->
                                         <geom class="visual" mesh="right_hand_yaw_link"/>
                                         <geom class="collision" size="0.032 0.06" type="cylinder"/>
 
@@ -315,14 +315,14 @@
         <motor class="motor_4530E" name="left_shoulder_roll" joint="left_shoulder_roll_joint"/>
         <motor class="motor_4530E" name="left_shoulder_yaw" joint="left_shoulder_yaw_joint"/>
         <motor class="motor_4530E" name="left_elbow_pitch" joint="left_elbow_pitch_joint"/>
-        <motor class="motor_4530E" name="left_wrist_yaw" joint="left_wrist_yaw_joint"/>
+<!--        <motor class="motor_4530E" name="left_wrist_yaw" joint="left_wrist_yaw_joint"/>-->
 
         <!-- right arm -->
         <motor class="motor_6043E" name="right_shoulder_pitch" joint="right_shoulder_pitch_joint"/>
         <motor class="motor_4530E" name="right_shoulder_roll" joint="right_shoulder_roll_joint"/>
         <motor class="motor_4530E" name="right_shoulder_yaw" joint="right_shoulder_yaw_joint"/>
         <motor class="motor_4530E" name="right_elbow_pitch" joint="right_elbow_pitch_joint"/>
-        <motor class="motor_4530E" name="right_wrist_yaw" joint="right_wrist_yaw_joint"/>
+<!--        <motor class="motor_4530E" name="right_wrist_yaw" joint="right_wrist_yaw_joint"/>-->
     </actuator>
 
     <sensor>
@@ -364,8 +364,8 @@
                    0 0 0 0 0 0
                    0 0 0 0 0 0
                    0
-                   0 0 0 0 0
-                   0 0 0 0 0"
+                   0 0 0 0
+                   0 0 0 0 "
         />
     </keyframe>
 </mujoco>
