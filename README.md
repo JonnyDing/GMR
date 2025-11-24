@@ -30,15 +30,10 @@
 
 This repo is licensed under the [MIT License](LICENSE).
 
-Starting from its release, **GMR** has been massively used by the community. See below for cool papers that use GMR:
-
-- [arXiv 2025.08](https://arxiv.org/abs/2508.21043), *HITTER: A HumanoId Table TEnnis Robot via Hierarchical Planning and Learning*
-- [arXiv 2025.08](https://arxiv.org/abs/2508.13444), *Switch4EAI: Leveraging Console Game Platform for Benchmarking Robotic Athletics*
-- [arXiv 2025.05](https://arxiv.org/abs/2505.02833), *TWIST: Teleoperated Whole-Body Imitation System*
-
-
 
 # News & Updates
+- **2025-11-17:** To join our community for discussions, you can add my WeChat contact [QR Code](https://yanjieze.com/TWIST2/images/my_wechat.jpg) with info like "[GMR] [Your Name] [Your Affiliation]".
+- **2025-11-08:** [MimicKit] from Jason Peng now supports GMR format. Check [here](https://github.com/xbpeng/MimicKit/tree/main/tools/gmr_to_mimickit).
 - **2025-10-15:** Now supporting [PAL Robotics' Talos](https://pal-robotics.com/robot/talos/), the 15th humanoid robot.
 - **2025-10-14:** GMR now supports [Nokov](https://www.nokov.com/) BVH data.
 - **2025-10-14:** Add a doc on ik config. See [DOC.md](DOC.md)
@@ -226,7 +221,7 @@ conda install -c conda-forge libstdcxx-ng -y
 
 To better use this library, you can first have an understanding of the human motion data we use and the robot motion data we obtain.
 
-Each frame of **human motion data** is formulated as a dict of (human_body_name, 3d global translation + global rotation).
+Each frame of **human motion data** is formulated as a dict of (human_body_name, 3d global translation + global rotation). The rotation is usually represented as quaternion (with wxyz order by default, to align with mujoco).
 
 Each frame of **robot motion data** can be understood as a tuple of (robot_base_translation, robot_base_rotation, robot_joint_positions).
 
