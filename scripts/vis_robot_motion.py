@@ -12,7 +12,7 @@ if __name__ == "__main__":
                         
     parser.add_argument("--robot_motion_path", type=str, required=True)
 
-    parser.add_argument("--record_video", action="store_true")
+    parser.add_argument("--record_video", action="store_true",default="False")
     parser.add_argument("--video_path", type=str, 
                         default="videos/example.mp4")
                         
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         raise FileNotFoundError(f"Motion file {robot_motion_path} not found")
     
     motion_data, motion_fps, motion_root_pos, motion_root_rot, motion_dof_pos, motion_local_body_pos, motion_link_body_list = load_robot_motion(robot_motion_path)
-    # print(motion_root_pos)
+    print(motion_root_pos)
     env = RobotMotionViewer(robot_type=robot_type,
                             motion_fps=motion_fps,
                             camera_follow=False,
@@ -37,6 +37,7 @@ if __name__ == "__main__":
                 motion_root_rot[frame_idx], 
                 motion_dof_pos[frame_idx], 
                 rate_limit=True)
+        print(motion_root_rot[frame_idx])
         frame_idx += 1
         if frame_idx >= len(motion_root_pos):
             frame_idx = 0

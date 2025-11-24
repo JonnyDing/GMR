@@ -131,8 +131,8 @@ if __name__ == "__main__":
 
         # retarget
         qpos = retarget.retarget(smplx_data)
-        qpos[2] -=0.02
-        qpos[12]=qpos[18]=-0.2408
+        qpos[2] +=0.02
+        # qpos[12]=qpos[18]=-0.2408
         # visualize
         robot_motion_viewer.step(
             root_pos=qpos[:3],
@@ -158,7 +158,7 @@ if __name__ == "__main__":
         local_body_pos = None
         body_names = None
 
-        print(root_pos)
+        print(root_rot)
         motion_data = {
             "fps": aligned_fps,
             "root_pos": root_pos,

@@ -202,7 +202,6 @@ class KinematicsModel:
         # local rotation shape: [num_joint-1, 4]
         global_rot = torch.zeros_like(local_rot)
         global_rot[..., 0, :] = local_rot[..., 0, :]
-        
         for j in range(1, self.num_joint):
             parent_idx = self._parent_indices[j]
             parent_rot = global_rot[..., parent_idx, :]
@@ -219,7 +218,7 @@ class KinematicsModel:
         
         body_pos[0] = root_pos
         body_rot[0] = root_rot
-        
+        print(self.num_joint)
         for j in range(1, self.num_joint):
             j_rot = joint_rot[..., j-1, :]
             local_trans = self._local_translation[j] if fitted_shape is None else self._local_translation[j] * fitted_shape[j]

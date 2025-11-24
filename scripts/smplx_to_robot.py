@@ -8,7 +8,7 @@ import numpy as np
 from general_motion_retargeting import GeneralMotionRetargeting as GMR
 from general_motion_retargeting import RobotMotionViewer
 from general_motion_retargeting.utils.smpl import load_smplx_file, get_smplx_data_offline_fast
-
+from general_motion_retargeting.kinematics_model import KinematicsModel
 from rich import print
 
 if __name__ == "__main__":
@@ -93,7 +93,7 @@ if __name__ == "__main__":
                                             record_video=args.record_video,
                                             video_path=f"videos/{args.robot}_{args.smplx_file.split('/')[-1].split('.')[0]}.mp4",)
     
-
+    # kinematics_model = KinematicsModel(retargeter.xml_file, device=device)
     curr_frame = 0
     # FPS measurement variables
     fps_counter = 0
@@ -128,7 +128,7 @@ if __name__ == "__main__":
         
         # Update task targets.
         smplx_data = smplx_data_frames[i]
-
+        # import ipdb;ipdb.set_trace()
         # retarget
         qpos = retarget.retarget(smplx_data)
 
@@ -154,7 +154,7 @@ if __name__ == "__main__":
         dof_pos = np.array([qpos[7:] for qpos in qpos_list])
         local_body_pos = None
         body_names = None
-        
+        # import ipdb;ipdb.set_trace()
         motion_data = {
             "fps": aligned_fps,
             "root_pos": root_pos,

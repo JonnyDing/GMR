@@ -47,6 +47,7 @@ IK_CONFIG_DICT = {
     "bvh_lafan1":{
         "unitree_g1": IK_CONFIG_ROOT / "bvh_lafan1_to_g1.json",
         "unitree_g1_with_hands": IK_CONFIG_ROOT / "bvh_lafan1_to_g1.json",
+        "unitree_h1": IK_CONFIG_ROOT / "bvh_to_talos.json",
         "booster_t1_29dof": IK_CONFIG_ROOT / "bvh_lafan1_to_t1_29dof.json",
         "fourier_n1": IK_CONFIG_ROOT / "bvh_lafan1_to_n1.json",
         "stanford_toddy": IK_CONFIG_ROOT / "bvh_lafan1_to_toddy.json",
@@ -62,6 +63,10 @@ IK_CONFIG_DICT = {
     },
     "fbx_offline":{
         "unitree_g1": IK_CONFIG_ROOT / "fbx_offline_to_g1.json",
+    },
+    "xsens_bvh":{
+        "unitree_g1": IK_CONFIG_ROOT / "xsens_bvh_to_g1.json",
+        "unitree_h1_2": IK_CONFIG_ROOT / "xsens_bvh_to_h1_2.json",
     },
 }
 

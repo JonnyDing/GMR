@@ -6,6 +6,7 @@ from tqdm import tqdm
 def convert_smpl_to_smplx(input_path, output_path, gender='neutral'):
     # Load SMPL data
     smpl_data = np.load(input_path, allow_pickle=True)
+    # import ipdb;ipdb.set_trace()
     data_dict = dict(smpl_data)  # Convert to dict for modification
 
     # Handle betas padding for SMPL-X (pad from 10 to 16 if necessary)

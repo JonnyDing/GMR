@@ -52,7 +52,7 @@ class GeneralMotionRetargeting:
             self.robot_motor_names[motor_name] = i
             if verbose:
                 print(f"Motor ID {i}: {motor_name}")
-
+        # import ipdb; ipdb.set_trace()
         # Load the IK config
         with open(IK_CONFIG_DICT[src_human][tgt_robot]) as f:
             ik_config = json.load(f)

@@ -129,8 +129,8 @@ class RobotMotionViewer:
             self.viewer.cam.elevation = -10  # 正面视角，轻微向下看
             # self.viewer.cam.azimuth = 180    # 正面朝向机器人
         
-        if human_motion_data is not None:
             # Clean custom geometry
+        if human_motion_data is not None:
             self.viewer.user_scn.ngeom = 0
             # Draw the task targets for reference
             for human_body_name, (pos, rot) in human_motion_data.items():
@@ -142,7 +142,7 @@ class RobotMotionViewer:
                     pos_offset=human_pos_offset,
                     joint_name=human_body_name if show_human_body_name else None
                     )
-
+        # import ipdb;ipdb.set_trace()
         self.viewer.sync()
         if rate_limit is True:
             self.rate_limiter.sleep()
